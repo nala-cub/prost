@@ -1,0 +1,44 @@
+refs:
+  height_options: &circ_options
+    A: "{circ_obj1}"
+    B: "{circ_obj2}"
+    C: "{circ_obj3}"
+    D: "{circ_obj4}"
+
+  circumference_1: &circumference_1
+    context: >- 
+      Four people are walking at identical speeds. The first walks around
+      {a:circ_obj1}, the second walks around {a:circ_obj2}, the third walks
+      around {a:circ_obj3}, and the fourth walks around {a:circ_obj4}.
+    choices: *circ_options
+
+  circumference_2: &circumference_2
+    context: >- 
+      A person paints a circle around {a:circ_obj1}, {a:circ_obj2},
+      {a:circ_obj3}, and a {circ_obj4}.
+    choices: *circ_options
+
+configs:
+  - name: circumference_1_a
+    <<: *circumference_1
+    question: The [MASK] takes the longest amount of time to walk around.
+    ex_question: Which takes the longest amount of time to walk around?
+    expect_fn: pick_ranked_max
+
+  - name: circumference_1_b
+    <<: *circumference_1
+    question: The [MASK] takes the shortest amount of time to walk around.
+    ex_question: Which takes the shortest amount of time to walk around?
+    expect_fn: pick_ranked_min
+
+  - name: circumference_2_a
+    <<: *circumference_2
+    question: The circle around the [MASK] takes the most amount of paint.
+    ex_question: Which circle takes the most amount of paint?
+    expect_fn: pick_ranked_max
+
+  - name: circumference_2_b
+    <<: *circumference_2
+    question: The circle around the [MASK] takes the least amount of paint.
+    ex_question: Which circle takes the least amount of paint?
+    expect_fn: pick_ranked_min

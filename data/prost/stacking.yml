@@ -1,0 +1,103 @@
+refs:
+  stacking: &stacking
+    question: The [MASK] are the easiest to stack.
+    ex_question: Which are the easiest to stack?
+    expect_fn: pick_odd_one_out
+
+  nonstacking: &nonstacking
+    question: The [MASK] are the hardest to stack.
+    ex_question: Which are the hardest to stack?
+    expect_fn: pick_odd_one_out
+
+configs:
+  - name: stacking_1
+    <<: *stacking
+    context: >-
+      A person is trying to stack {stack_obj}, {nonstack_obj1},
+      {nonstack_obj2}, and {nonstack_obj3}.
+    choices:
+      A: "{stack_obj}"
+      B: "{nonstack_obj1}"
+      C: "{nonstack_obj2}"
+      D: "{nonstack_obj3}"
+
+  - name: stacking_2
+    <<: *stacking
+    context: >-
+      A person is trying to stack {nonstack_obj1}, {stack_obj},
+      {nonstack_obj2}, and {nonstack_obj3}.
+    choices:
+      A: "{nonstack_obj1}"
+      B: "{stack_obj}"
+      C: "{nonstack_obj2}"
+      D: "{nonstack_obj3}"
+    
+
+  - name: stacking_3
+    <<: *stacking
+    context: >-
+      A person is trying to stack {nonstack_obj1}, {nonstack_obj2},
+      {stack_obj}, and {nonstack_obj3}.
+    question:
+      The [MASK] are the easiest to stack.
+    ex_question: Which are the easiest to stack?
+    choices:
+      A: "{nonstack_obj1}"
+      B: "{nonstack_obj2}"
+      C: "{stack_obj}"
+      D: "{nonstack_obj3}"
+
+  - name: stacking_4
+    <<: *stacking
+    context: >-
+      A person is trying to stack {nonstack_obj1}, {nonstack_obj2},
+      {nonstack_obj3}, and {stack_obj}.
+    choices:
+      A: "{nonstack_obj1}"
+      B: "{nonstack_obj2}"
+      C: "{nonstack_obj3}"
+      D: "{stack_obj}"
+
+  - name: nonstacking_1
+    <<: *nonstacking
+    context: >-
+      A person is trying to stack {nonstack_obj}, {stack_obj1},
+      {stack_obj2}, and {stack_obj3}.
+    choices:
+      A: "{nonstack_obj}"
+      B: "{stack_obj1}"
+      C: "{stack_obj2}"
+      D: "{stack_obj3}"
+
+  - name: nonstacking_2
+    <<: *nonstacking
+    context: >-
+      A person is trying to stack {stack_obj1}, {nonstack_obj},
+      {stack_obj2}, and {stack_obj3}.
+    choices:
+      A: "{stack_obj1}"
+      B: "{nonstack_obj}"
+      C: "{stack_obj2}"
+      D: "{stack_obj3}"
+
+  - name: nonstacking_3
+    <<: *nonstacking
+    context: >-
+      A person is trying to stack {stack_obj1}, {stack_obj2},
+      {nonstack_obj}, and {stack_obj3}.
+    choices:
+      A: "{stack_obj1}"
+      B: "{stack_obj2}"
+      C: "{nonstack_obj}"
+      D: "{stack_obj3}"
+
+  - name: nonstacking_4
+    <<: *nonstacking
+    context: >-
+      A person is trying to stack {stack_obj1}, {stack_obj2},
+      {stack_obj3}, and {nonstack_obj}.
+    choices:
+      A: "{stack_obj1}"
+      B: "{stack_obj2}"
+      C: "{stack_obj3}"
+      D: "{nonstack_obj}"

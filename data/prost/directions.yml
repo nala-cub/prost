@@ -1,0 +1,61 @@
+# OR the ball is moving in the direction of the
+
+refs:
+  direction_question: &direction_question >-
+    Immediately after leaving the person's hand, the ball is moving toward the [MASK].
+  ex_direction_question: &ex_direction_question >-
+    Immediately after leaving the person's hand, which way is the ball moving?
+
+  direction_options: &direction_options
+    A: ground
+    B: sky
+    C: left
+    D: right
+
+configs:
+  - name: directions_1 
+    context: A person is walking {coord}. They turn {turn}.
+    question: They are now walking [MASK].
+    ex_question: Which way are they walking now?
+    choices:
+      A: north
+      B: east
+      C: south
+      D: west
+    expect_fn: turning
+
+  - name: directions_2_a 
+    context: A person drops a ball.
+    question: *direction_question
+    ex_question: *ex_direction_question
+    choices: *direction_options
+    expect_fn: constant_a
+
+  - name: directions_2_b 
+    context: A person throws a ball straight into the air.
+    question: *direction_question
+    ex_question: *ex_direction_question
+    choices: *direction_options
+    expect_fn: constant_b
+
+  - name: directions_2_c 
+    context: A person throws a ball straight into the air.
+    question: >-
+      Immediately after reaching the highest point in it's trajectory,
+      the ball is moving toward the [MASK].
+    ex_question: >-
+      Immediately after reaching the highest point in it's trajectory,
+      where is the ball moving toward?
+    choices: *direction_options
+    expect_fn: constant_a
+
+  - name: directions_2_d 
+    context: A person drops a ball. The ball then bounces off the ground.
+    question: >-
+      Immediately after bouncing off the ground,
+      the ball is moving toward the [MASK].
+    ex_question: >-
+      Immediately after bouncing off the ground,
+      where is the ball moving toward?
+    choices: *direction_options
+    expect_fn: constant_b

@@ -1,0 +1,33 @@
+
+# Nest Bazel symlinks under _/bazel. Note that this will still create a
+# bazel-out symlink in your project directory
+build --symlink_prefix=_bazel/
+
+# Testing default: show errors
+test --test_output=errors
+
+# Testing debug: stream tests
+test:debug --test_output=streamed --test_strategy=exclusive --test_timeout=9999 --nocache_test_results
+
+
+# Flag to enable remote config
+common --experimental_repo_remote_exec
+
+# Python rules 
+build --incompatible_default_to_explicit_init_py
+run --incompatible_default_to_explicit_init_py
+test --incompatible_default_to_explicit_init_py
+
+
+# The following flags are set to test use of new features for python toolchains
+# These flags will only work with Bazel 0.25.0 or above.
+build --incompatible_use_python_toolchains
+test --incompatible_use_python_toolchains
+
+
+# lint aspect on build
+# build --aspects //tools/python:aspect.bzl%lint
+# build --output_groups=+report
+
+
+

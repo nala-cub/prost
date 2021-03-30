@@ -1,0 +1,108 @@
+refs:
+  bouncing: &bouncing
+    question: The ball dropped onto the [MASK] bounces the most times.
+    ex_question: Which ball bounces the highest?
+    expect_fn: pick_odd_one_out
+  
+  nonbouncing: &nonbouncing
+    question: The ball dropped onto the [MASK] bounces the fewest times.
+    ex_question: Which ball bounces the least?
+    expect_fn: pick_odd_one_out
+    
+configs:
+  - name: bouncing_1 
+    <<: *bouncing
+    context: >-
+        A person is trying to bounce a rubber ball. They drop a first ball onto
+        {bounce_surf}, a second ball onto {nonbounce_surf1}, a third ball onto
+        {nonbounce_surf2}, and a fourth ball onto {nonbounce_surf3}.
+    choices:
+      A: "{bounce_surf}"
+      B: "{nonbounce_surf1}"
+      C: "{nonbounce_surf2}"
+      D: "{nonbounce_surf3}"
+    
+  - name: bouncing_2 
+    <<: *bouncing
+    context: >-
+      A person is trying to bounce a rubber ball. They drop a first ball
+      onto {nonbounce_surf1}, a second ball onto {bounce_surf}, a third
+      ball onto {nonbounce_surf2}, and a fourth ball onto {nonbounce_surf3}.
+    choices:
+      A: "{nonbounce_surf1}"
+      B: "{bounce_surf}"
+      C: "{nonbounce_surf2}"
+      D: "{nonbounce_surf3}"
+  
+  - name: bouncing_3 
+    <<: *bouncing
+    context: >-
+      A person is trying to bounce a rubber ball. They drop a first ball onto
+      {nonbounce_surf1}, a second ball onto {nonbounce_surf2}, a third ball onto
+      {bounce_surf}, and a fourth ball onto {nonbounce_surf3}.
+    choices:
+      A: "{nonbounce_surf1}"
+      B: "{nonbounce_surf2}"
+      C: "{bounce_surf}"
+      D: "{nonbounce_surf3}"
+    
+  - name: bouncing_4 
+    <<: *bouncing
+    context: >-
+      A person is trying to bounce a rubber ball. They drop a first ball onto
+      {bounce_surf}, a second ball onto {nonbounce_surf1}, a third ball onto
+      {nonbounce_surf2}, and a fourth ball onto {nonbounce_surf3}.
+    choices:
+      A: "{nonbounce_surf1}"
+      B: "{nonbounce_surf2}"
+      C: "{nonbounce_surf3}"
+      D: "{bounce_surf}"
+    
+  - name: nonbouncing_1 
+    <<: *nonbouncing
+    context: >-
+      A person is trying to bounce a rubber ball. They drop a first ball onto
+      {nonbounce_surf}, a second ball onto {bounce_surf1}, a third ball onto
+      {bounce_surf2}, and a fourth ball onto {bounce_surf3}.
+    choices:
+      A: "{nonbounce_surf}"
+      B: "{bounce_surf1}"
+      C: "{bounce_surf2}"
+      D: "{bounce_surf3}"
+    
+  - name: nonbouncing_2 
+    <<: *nonbouncing
+    context:
+        A person is trying to bounce a rubber ball. They drop a first ball onto
+        {bounce_surf1}, a second ball onto {nonbounce_surf}, a third ball onto
+        {bounce_surf2}, and a fourth ball onto {bounce_surf3}.
+    choices:
+      A: "{bounce_surf1}"
+      B: "{nonbounce_surf}"
+      C: "{bounce_surf2}"
+      D: "{bounce_surf3}"
+    
+  - name: nonbouncing_3 
+    <<: *nonbouncing
+    context:
+        A person is trying to bounce a rubber ball. They drop a first ball onto
+        {bounce_surf1}, a second ball onto {bounce_surf2}, a third ball onto
+        {nonbounce_surf}, and a fourth ball onto {bounce_surf3}.
+    choices:
+      A: "{bounce_surf1}"
+      B: "{bounce_surf2}"
+      C: "{nonbounce_surf}"
+      D: "{bounce_surf3}"
+    
+  - name: nonbouncing_4 
+    <<: *nonbouncing
+    context: >-
+        A person is trying to bounce a rubber ball. They drop a first ball onto
+        {bounce_surf1}, a second ball onto {bounce_surf2}, a third ball onto
+        {bounce_surf3}, and a fourth ball onto {nonbounce_surf}.
+    choices:
+      A: "{bounce_surf1}"
+      B: "{bounce_surf2}"
+      C: "{bounce_surf3}"
+      D: "{nonbounce_surf}"
+    

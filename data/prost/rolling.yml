@@ -1,0 +1,99 @@
+refs:
+  rolling: &rolling
+    question: The [MASK] is the easiest to roll.
+    ex_question: Which is the easiest to roll?
+    expect_fn: pick_odd_one_out
+  
+  nonrolling: &nonrolling
+    question: The [MASK] is the hardest to roll.
+    ex_question: Which is the hardest to roll?
+    expect_fn: pick_odd_one_out
+
+configs:
+  - name: rolling_1
+    <<: *rolling
+    context: >-
+      A person is trying to roll {a:roll_obj}, {a:nonroll_obj1},
+      {a:nonroll_obj2}, and {a:nonroll_obj3}.
+    choices:
+      A: "{roll_obj}"
+      B: "{nonroll_obj1}"
+      C: "{nonroll_obj2}"
+      D: "{nonroll_obj3}"
+
+  - name: rolling_2
+    <<: *rolling
+    context: >-
+      A person is trying to roll {a:nonroll_obj1}, {a:roll_obj},
+      {a:nonroll_obj2}, and {a:nonroll_obj3}.
+    choices:
+      A: "{nonroll_obj1}"
+      B: "{roll_obj}"
+      C: "{nonroll_obj2}"
+      D: "{nonroll_obj3}"
+
+  - name: rolling_3
+    <<: *rolling
+    context: >-
+      A person is trying to roll {a:nonroll_obj1}, {a:nonroll_obj2},
+      {a:roll_obj}, and {a:nonroll_obj3}.
+    choices:
+      A: "{nonroll_obj1}"
+      B: "{nonroll_obj2}"
+      C: "{roll_obj}"
+      D: "{nonroll_obj3}"
+
+  - name: rolling_4
+    <<: *rolling
+    context: >-
+      A person is trying to roll {a:nonroll_obj1}, {a:nonroll_obj2},
+      {a:nonroll_obj3}, and {a:roll_obj}.
+    choices:
+      A: "{nonroll_obj1}"
+      B: "{nonroll_obj2}"
+      C: "{nonroll_obj3}"
+      D: "{roll_obj}"
+
+  - name: nonrolling_1
+    <<: *nonrolling
+    context: >-
+      A person is trying to roll {a:nonroll_obj}, {a:roll_obj1},
+      {a:roll_obj2}, and {a:roll_obj3}.
+    choices:
+      A: "{nonroll_obj}"
+      B: "{roll_obj1}"
+      C: "{roll_obj2}"
+      D: "{roll_obj3}"
+
+  - name: nonrolling_2
+    <<: *nonrolling
+    context: >-
+      A person is trying to roll {a:roll_obj1}, {a:nonroll_obj},
+      {a:roll_obj2}, and {a:roll_obj3}.
+    choices:
+      A: "{roll_obj1}"
+      B: "{nonroll_obj}"
+      C: "{roll_obj2}"
+      D: "{roll_obj3}"
+
+  - name: nonrolling_3
+    <<: *nonrolling
+    context: >-
+      A person is trying to roll {a:roll_obj1}, {a:roll_obj2},
+      {a:nonroll_obj}, and {a:roll_obj3}.
+    choices:
+      A: "{roll_obj1}"
+      B: "{roll_obj2}"
+      C: "{nonroll_obj}"
+      D: "{roll_obj3}"
+
+  - name: nonrolling_4
+    <<: *nonrolling
+    context: >-
+      A person is trying to roll {a:roll_obj1}, {a:roll_obj2},
+      {a:roll_obj3}, and {a:nonroll_obj}.
+    choices:
+      A: "{roll_obj1}"
+      B: "{roll_obj2}"
+      C: "{roll_obj3}"
+      D: "{nonroll_obj}"

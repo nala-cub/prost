@@ -1,0 +1,128 @@
+# Direction questions
+coord:
+  - north
+  - east
+  - south
+  - west
+
+turn:
+  - to the right
+  - around
+  - to the left
+
+# Mass
+mass_obj:
+  - leaf
+  - coin
+  - egg
+  - apple
+  - brick
+  - microwave
+
+# Height
+height_obj:
+  - book
+  - microwave
+  - table
+  - car
+  - house
+  - mountain
+
+# Circumference
+circ_obj:
+  - book
+  - microwave
+  - table
+  - car
+  - house
+  - mountain
+
+# Breaking
+break_obj:
+  - egg
+  - bottle
+  - glass
+  - plate
+  - mirror
+
+nonbreak_obj:
+  - coin
+  - shirt
+  - pen
+  - pillow
+  - ball
+
+# Grasping
+grasp_obj:
+  - flowers
+  - bottles
+  - balls
+  - blocks
+  - books
+
+nongrasp_obj:
+  - snow
+  - flour
+  - salt
+  - sugar
+  - rice
+
+# Sliding
+slide_surf:
+  - ice
+  - oil
+  - soap
+  - grease
+  - frost
+
+nonslide_surf:
+  - gravel
+  - grass
+  - carpet
+  - concrete
+  - rubber
+
+# Bouncing
+bounce_surf:
+  - rubber
+  - brick
+  - concrete
+  - steel
+  - asphalt
+
+nonbounce_surf:
+  - leaves
+  - grass
+  - carpet
+  - foam
+  - snow
+
+# Stacking
+stack_obj:
+  - books
+  - blocks
+  - boxes
+  - plates
+  - coins
+
+nonstack_obj:
+  - eggs
+  - bottles
+  - flowers
+  - lamps
+  - balls
+
+# Rolling
+roll_obj:
+  - egg
+  - bottle
+  - ball
+  - apple
+  - can
+
+nonroll_obj:
+  - book
+  - mirror
+  - box
+  - block
+  - microwave

@@ -1,0 +1,107 @@
+refs:
+  grasping: &grasping
+    question: The pile of [MASK] is the easiest to move.
+    ex_question: Which pile is the easiest to move?
+    expect_fn: pick_odd_one_out
+  
+  nongrasping: &nongrasping
+    question: The pile of [MASK] is the hardest to move.
+    ex_question: Which pile is the hardest to move?
+    expect_fn: pick_odd_one_out
+
+configs:
+  - name: grasping_1 
+    <<: *grasping
+    context: >-
+      A person is trying to move a pile of {grasp_obj}, a pile of
+      {nongrasp_obj1}, a pile of {nongrasp_obj2}, and a pile of {nongrasp_obj3}
+      from one side of a room to the other using only one hand.
+    choices:
+      A: "{grasp_obj}"
+      B: "{nongrasp_obj1}"
+      C: "{nongrasp_obj2}"
+      D: "{nongrasp_obj3}"
+
+  - name: grasping_2 
+    <<: *grasping
+    context: >-
+      A person is trying to move a pile of {nongrasp_obj1}, a pile of
+      {grasp_obj}, a pile of {nongrasp_obj2}, and a pile of {nongrasp_obj3}
+      from one side of a room to the other using only one hand.
+    choices:
+      A: "{nongrasp_obj1}"
+      B: "{grasp_obj}"
+      C: "{nongrasp_obj2}"
+      D: "{nongrasp_obj3}"
+
+  - name: grasping_3 
+    <<: *grasping
+    context: >-
+      A person is trying to move a pile of {nongrasp_obj1}, a pile of
+      {nongrasp_obj2}, a pile of {grasp_obj}, and a pile of {nongrasp_obj3}
+      from one side of a room to the other using only one hand.
+    choices:
+      A: "{nongrasp_obj1}"
+      B: "{nongrasp_obj2}"
+      C: "{grasp_obj}"
+      D: "{nongrasp_obj3}"
+
+  - name: grasping_4 
+    <<: *grasping
+    context: >-
+      A person is trying to move a pile of {nongrasp_obj1}, a pile of
+      {nongrasp_obj2}, a pile of {nongrasp_obj3}, and a pile of {grasp_obj}
+      from one side of a room to the other using only one hand.
+    choices:
+      A: "{nongrasp_obj1}"
+      B: "{nongrasp_obj2}"
+      C: "{nongrasp_obj3}"
+      D: "{grasp_obj}"
+    
+  - name: nongrasping_1 
+    <<: *nongrasping
+    context: >-
+      A person is trying to move a pile of {nongrasp_obj}, a pile of
+      {grasp_obj1}, a pile of {grasp_obj2}, and a pile of {grasp_obj3}
+      from one side of a room to the other using only one hand.
+    choices:
+        A: "{nongrasp_obj}"
+        B: "{grasp_obj1}"
+        C: "{grasp_obj2}"
+        D: "{grasp_obj3}"
+
+  - name: nongrasping_2 
+    <<: *nongrasping
+    context: >-
+      A person is trying to move a pile of {grasp_obj1}, a pile of
+      {nongrasp_obj}, a pile of {grasp_obj2}, and a pile of {grasp_obj3}
+      from one side of a room to the other using only one hand.
+    choices:
+      A: "{grasp_obj1}"
+      B: "{nongrasp_obj}"
+      C: "{grasp_obj2}"
+      D: "{grasp_obj3}"
+    
+  - name: nongrasping_3 
+    <<: *nongrasping
+    context: >-
+      A person is trying to move a pile of {grasp_obj1}, a pile of
+      {grasp_obj2}, a pile of {nongrasp_obj}, and a pile of {grasp_obj3}
+      from one side of a room to the other using only one hand.
+    choices:
+      A: "{grasp_obj1}"
+      B: "{grasp_obj2}"
+      C: "{nongrasp_obj}"
+      D: "{grasp_obj3}"
+    
+  - name: nongrasping_4 
+    <<: *nongrasping
+    context: >-
+      A person is trying to move a pile of {grasp_obj1}, a pile of
+      {grasp_obj2}, a pile of {grasp_obj3}, and a pile of {nongrasp_obj}
+      from one side of a room to the other using only one hand.
+    choices:
+      A: "{grasp_obj1}"
+      B: "{grasp_obj2}"
+      C: "{grasp_obj3}"
+      D: "{nongrasp_obj}"

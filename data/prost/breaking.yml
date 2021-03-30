@@ -1,0 +1,101 @@
+refs:
+  breaking: &breaking
+    question: The [MASK] is the most likely to break.
+    ex_question: Which object is the most likely to break?
+    expect_fn: pick_odd_one_out
+  
+  nonbreaking: &nonbreaking
+    question: The [MASK] is the least likely to break.
+    ex_question: Which object is the least likely to break?
+    expect_fn: pick_odd_one_out
+
+
+configs:
+  - name: breaking_1 
+    <<: *breaking
+    context: >-
+      A person drops {a:break_obj}, {a:nonbreak_obj1}, {a:nonbreak_obj2},
+      and {a:nonbreak_obj3} from a balcony.
+    choices:
+      A: "{break_obj}"
+      B: "{nonbreak_obj1}"
+      C: "{nonbreak_obj2}"
+      D: "{nonbreak_obj3}"
+    
+  - name: breaking_2 
+    <<: *breaking
+    context: >-
+      A person drops {a:nonbreak_obj1}, {a:break_obj}, {a:nonbreak_obj2},
+      and {a:nonbreak_obj3} from a balcony.
+    choices:
+      A: "{nonbreak_obj1}"
+      B: "{break_obj}"
+      C: "{nonbreak_obj2}"
+      D: "{nonbreak_obj3}"
+    
+  - name: breaking_3 
+    <<: *breaking
+    context: >-
+      A person drops {a:nonbreak_obj1}, {a:nonbreak_obj2}, {a:break_obj},
+      and {a:nonbreak_obj3} from a balcony.
+    choices:
+      A: "{nonbreak_obj1}"
+      B: "{nonbreak_obj2}"
+      C: "{break_obj}"
+      D: "{nonbreak_obj3}"
+    
+  - name: breaking_4 
+    <<: *breaking
+    context: >-
+      A person drops {a:nonbreak_obj1}, {a:nonbreak_obj2}, {a:nonbreak_obj3},
+      and {a:break_obj} from a balcony.
+    choices:
+      A: "{nonbreak_obj1}"
+      B: "{nonbreak_obj2}"
+      C: "{nonbreak_obj3}"
+      D: "{break_obj}"
+    
+  - name: nonbreaking_1 
+    <<: *nonbreaking
+    context: >-
+      A person drops {a:nonbreak_obj}, {a:break_obj1}, {a:break_obj2},
+      and {a:break_obj3} from a balcony.
+    choices:
+      A: "{nonbreak_obj}"
+      B: "{break_obj1}"
+      C: "{break_obj2}"
+      D: "{break_obj3}"
+    
+  - name: nonbreaking_2 
+    <<: *nonbreaking
+    context: >-
+      A person drops {a:break_obj1}, {a:nonbreak_obj}, {a:break_obj2},
+      and {a:break_obj3} from a balcony.
+    choices:
+      A: "{break_obj1}"
+      B: "{nonbreak_obj}"
+      C: "{break_obj2}"
+      D: "{break_obj3}"
+    
+  - name: nonbreaking_3 
+    <<: *nonbreaking
+    context: >-
+      A person drops {a:break_obj1}, {a:break_obj2}, {a:nonbreak_obj},
+      and {a:break_obj3} from a balcony.
+    choices:
+      A: "{break_obj1}"
+      B: "{break_obj2}"
+      C: "{nonbreak_obj}"
+      D: "{break_obj3}"
+    
+  - name: nonbreaking_4 
+    <<: *nonbreaking
+    context: >-
+      A person drops {a:break_obj1}, {a:break_obj2}, {a:break_obj3},
+      and {a:nonbreak_obj} from a balcony.
+    choices:
+      A: "{break_obj1}"
+      B: "{break_obj2}"
+      C: "{break_obj3}"
+      D: "{nonbreak_obj}"
+    

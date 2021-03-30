@@ -1,0 +1,119 @@
+refs:
+  sliding: &sliding
+    question: >-
+      The surface covered with [MASK] is the
+      easiest for the brick to slide across.
+    ex_question: Which brick slides the longest distance?
+    expect_fn: pick_odd_one_out
+
+  nonsliding: &nonsliding
+    question: >-
+      The surface covered with [MASK] is the
+      hardest for the brick to slide across.
+    ex_question: Which brick slides the shortest distance?
+    expect_fn: pick_odd_one_out
+
+configs:
+  - name: sliding_1
+    <<: *sliding
+    context: >-
+      A person is sliding four bricks across four hard surfaces. The first
+      surface is covered with {slide_surf}, the second surface is covered
+      with {nonslide_surf1}, the third surface is covered with {nonslide_surf2},
+      and the fourth surface is covered with {nonslide_surf3}.
+    choices:
+      A: "{slide_surf}"
+      B: "{nonslide_surf1}"
+      C: "{nonslide_surf2}"
+      D: "{nonslide_surf3}"
+
+  - name: sliding_2
+    <<: *sliding
+    context: >-
+        A person is sliding four bricks across four hard surfaces. The first
+        surface is covered with {nonslide_surf1}, the second surface is covered
+        with {slide_surf}, the third surface is covered with {nonslide_surf2},
+        and the fourth surface is covered with {nonslide_surf3}.
+    choices:
+      A: "{nonslide_surf1}"
+      B: "{slide_surf}"
+      C: "{nonslide_surf2}"
+      D: "{nonslide_surf3}"
+
+  - name: sliding_3
+    <<: *sliding
+    context: >-
+      A person is sliding four bricks across four hard surfaces. The first
+      surface is covered with {nonslide_surf1}, the second surface is covered
+      with {nonslide_surf2}, the third surface is covered with {slide_surf},
+      and the fourth surface is covered with {nonslide_surf3}.
+    choices:
+      A: "{nonslide_surf1}"
+      B: "{nonslide_surf2}"
+      C: "{slide_surf}"
+      D: "{nonslide_surf3}"
+
+  - name: sliding_4
+    <<: *sliding
+    context: >-
+        A person is sliding four bricks across four hard surfaces. The first
+        surface is covered with {nonslide_surf1}, the second surface is covered
+        with {nonslide_surf2}, the third surface is covered with
+        {nonslide_surf3}, and the fourth surface is covered with {slide_surf}.
+    choices:
+      A: "{nonslide_surf1}"
+      B: "{nonslide_surf2}"
+      C: "{nonslide_surf3}"
+      D: "{slide_surf}"
+
+  - name: nonsliding_1
+    <<: *nonsliding
+    context:
+      A person is sliding four bricks across four hard surfaces. The first
+      surface is covered with {nonslide_surf}, the second surface is covered
+      with {slide_surf1}, the third surface is covered with {slide_surf2},
+      and the fourth surface is covered with {slide_surf3}.
+    choices:
+      A: "{nonslide_surf}"
+      B: "{slide_surf1}"
+      C: "{slide_surf2}"
+      D: "{slide_surf3}"
+
+  - name: nonsliding_2
+    <<: *nonsliding
+    context:
+      A person is sliding four bricks across four hard surfaces. The first
+      surface is covered with {slide_surf1}, the second surface is covered
+      with {nonslide_surf}, the third surface is covered with {slide_surf2},
+      and the fourth surface is covered with {slide_surf3}.
+    choices:
+      A: "{slide_surf1}"
+      B: "{nonslide_surf}"
+      C: "{slide_surf2}"
+      D: "{slide_surf3}"
+
+  - name: nonsliding_3
+    <<: *nonsliding
+    context:
+      A person is sliding four bricks across four hard surfaces. The first
+      surface is covered with {slide_surf1}, the second surface is covered
+      with {slide_surf2}, the third surface is covered with {nonslide_surf},
+      and the fourth surface is covered with {slide_surf3}.
+    choices:
+      A: "{slide_surf1}"
+      B: "{slide_surf2}"
+      C: "{nonslide_surf}"
+      D: "{slide_surf3}"
+
+  - name: nonsliding_4
+    <<: *nonsliding
+    context:
+      A person is sliding four bricks across four hard surfaces. The first
+      surface is covered with {slide_surf1}, the second surface is covered
+      with {slide_surf1}, the third surface is covered with {slide_surf2},
+      and the fourth surface is covered with {nonslide_surf}.
+    choices:
+      A: "{slide_surf1}"
+      B: "{slide_surf2}"
+      C: "{slide_surf3}"
+      D: "{nonslide_surf}"

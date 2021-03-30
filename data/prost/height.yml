@@ -1,0 +1,59 @@
+refs:
+  height_options: &height_options
+    A: "{height_obj1}"
+    B: "{height_obj2}"
+    C: "{height_obj3}"
+    D: "{height_obj4}"
+
+  height_1: &height_1 
+    context: >-
+      Four balls are dropped. The first is dropped from the height equivalent of
+      {a:height_obj1}, the second is dropped from the height equivalent of
+      {a:height_obj2}, the third is dropped from the height equivalent of
+      {a:height_obj3}, and the fourth is dropped from the height equivalent of
+      {a:height_obj4}.
+    choices: *height_options
+
+  height_2: &height_2 
+    context: >-
+      There are four staircases. The first leads to the top of {a:height_obj1},
+      the second leads to the top of {a:height_obj2}, the third leads to the top
+      of {a:height_obj3}, and the fourth leads to the top of {a:height_obj4}.
+    choices: *height_options
+
+configs:
+  - name: height_1_a 
+    <<: *height_1
+    question: >-
+      The ball dropped from the height of the [MASK] takes the
+      longest amount of time to fall.
+    ex_question: >-
+      The ball dropped from the height of what takes the longest amount
+      of time to fall?
+    expect_fn: pick_ranked_max
+
+  - name: height_1_b 
+    <<: *height_1
+    question: >-
+      The ball dropped from the height of the [MASK] takes the
+      shortest amount of time to fall.
+    ex_question: >-
+      The ball dropped from the height of what takes the
+      shortest amount of time to fall?
+    expect_fn: pick_ranked_min
+
+  - name: height_2_a 
+    <<: *height_2
+    question: >-
+      The staircase leading to the top of the [MASK] is the hardest to walk up.
+    ex_question:
+      The staircase leading to the top of what is the hardest to walk up?
+    expect_fn: pick_ranked_max
+
+  - name: height_2_b 
+    <<: *height_2
+    question:
+      The staircase leading to the top of the [MASK] is the easiest to walk up.
+    ex_question:
+      The staircase leading to the top of what is the easiest to walk up?
+    expect_fn: pick_ranked_min

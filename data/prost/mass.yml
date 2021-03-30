@@ -1,0 +1,43 @@
+refs:
+  mass_options: &mass_options
+    A: "{mass_obj1}"
+    B: "{mass_obj2}"
+    C: "{mass_obj3}"
+    D: "{mass_obj4}"
+
+  mass_1: &mass_1 
+    context: >-
+      {a:mass_obj1}, {a:mass_obj2}, {a:mass_obj3}, and {a:mass_obj4} moving at
+      identical speeds each collide with a static hockey puck.
+    choices: *mass_options
+
+  mass_2: &mass_2 
+    context: >-
+      {a:mass_obj1} and {a:mass_obj2} are placed in baskets on either end of
+      a perfectly balanced seesaw.
+    choices: *mass_options
+
+configs:
+  - name: mass_1_a 
+    <<: *mass_1
+    question: The puck hit by the [MASK] slides the longest distance.
+    ex_question: Which puck slides the longest distance?
+    expect_fn: pick_ranked_max
+
+  - name: mass_1_b 
+    <<: *mass_1
+    question: The puck hit by the [MASK] slides the shortest distance.
+    ex_question: Which puck slides the shortest distance?
+    expect_fn: pick_ranked_min
+
+  - name: mass_2_a 
+    <<: *mass_2
+    question: The side of the seesaw with the [MASK] moves down.
+    ex_question: Which side of the seesaw moves down?
+    expect_fn: pick_ranked_filtered_max
+
+  - name: mass_2_b 
+    <<: *mass_2
+    question: The side of the seesaw with the [MASK] moves up.
+    ex_question: Which side of the seesaw moves up?
+    expect_fn: pick_ranked_filtered_min
