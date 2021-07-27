@@ -26,7 +26,7 @@ dataset = load_dataset('corypaik/prost', split='test')
 
 You can find more details about how to use Huggingface Datasets [here](https://github.com/huggingface/datasets).
 
-**Note:** PROST is also implemented as a Huggingface Dataset in [`/src/prost`](/src/prost), which will generate the same data, but builds the datset directly from yml templates and requieres some extra dependecies. 
+**Note:** PROST is also implemented as a Huggingface Dataset in [`/src/prost`](/src/prost), which will generate the same data, but builds the dataset directly from yaml templates and requires some extra dependencies. 
 
 ### Reproducing experiments
 
@@ -67,8 +67,21 @@ The location of results is dependent on how you set up and run this repository. 
 If this code was useful, please cite the paper:
 
 ```
-**TODO**
+@inproceedings{aroca-ouellette-etal-2021-prost,
+    title = "{PROST}: {P}hysical Reasoning about Objects through Space and Time",
+    author = "Aroca-Ouellette, St{\'e}phane  and
+      Paik, Cory  and
+      Roncone, Alessandro  and
+      Kann, Katharina",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.findings-acl.404",
+    pages = "4597--4608",
+}
 ```
 
-## Licence
+## License
 PROST is licensed under the Apache 2.0 license. The text of the license can be found [here](LICENSE).
